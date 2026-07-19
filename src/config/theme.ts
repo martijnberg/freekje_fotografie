@@ -10,11 +10,18 @@ import type { FontKey } from "@/config/fonts";
  */
 
 export interface ThemeConfig {
+  /** Achtergrondkleuren per pagina-onderdeel (geldige CSS-kleurwaarden). */
+  backgrounds: {
+    /** Homepage. */
+    landing: string;
+    /** Alle vervolgpagina's. */
+    content: string;
+    /** Vaste header. */
+    header: string;
+    /** Footer. */
+    footer: string;
+  };
   colors: {
-    /** Achtergrondkleur van de site (inhoudelijke pagina's). */
-    background: string;
-    /** Rustige achtergrondkleur van uitsluitend de homepage. */
-    homeBackground: string;
     /** Primaire tekstkleur (lopende tekst en koppen). */
     text: string;
     /** Zachte secundaire tekstkleur voor ondersteunende tekst. */
@@ -47,9 +54,23 @@ export interface ThemeConfig {
 }
 
 export const theme: ThemeConfig = {
+  /*
+   * Achtergrondkleuren per pagina-onderdeel. Voer geldige CSS-kleurwaarden in
+   * (bijv. hex, rgb(), hsl()). Iedere waarde bepaalt:
+   * - landing: achtergrond van de homepage
+   * - content: achtergrond van alle vervolgpagina's
+   * - header:  achtergrond van de vaste header
+   * - footer:  achtergrond van de footer
+   * Wijzigingen zijn tijdens `npm run dev` direct zichtbaar; voor productie
+   * opnieuw builden en deployen. Componenten hoeven niet te worden aangepast.
+   */
+  backgrounds: {
+    landing: "#dfe4db",
+    content: "#f6f4f1",
+    header: "#f6f4f1",
+    footer: "#f6f4f1",
+  },
   colors: {
-    background: "#f6f4f1",
-    homeBackground: "#e6eae2",
     text: "#20211f",
     muted: "#6b6862",
     accent: "#7c4f2f",

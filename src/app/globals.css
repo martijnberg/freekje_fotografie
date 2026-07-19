@@ -6,8 +6,10 @@
  * Tailwind-tokens gekoppeld, zodat componenten geen losse kleurcodes bevatten.
  */
 @theme inline {
-  --color-background: var(--site-bg);
-  --color-home-background: var(--site-home-bg);
+  --color-landing: var(--site-bg-landing);
+  --color-content: var(--site-bg-content);
+  --color-header: var(--site-bg-header);
+  --color-footer: var(--site-bg-footer);
   --color-foreground: var(--site-fg);
   --color-muted: var(--site-muted);
   --color-accent: var(--site-accent);
@@ -19,7 +21,7 @@
 }
 
 body {
-  background: var(--site-bg);
+  background: var(--site-bg-content);
   color: var(--site-fg);
   font-family: var(--site-font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;

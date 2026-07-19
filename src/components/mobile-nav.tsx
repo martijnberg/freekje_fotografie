@@ -43,7 +43,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
         <nav
           id={panelId}
           aria-label="Mobiele navigatie"
-          className="absolute inset-x-0 top-full border-t border-foreground/10 bg-background shadow-sm"
+          className="absolute inset-x-0 top-full border-t border-foreground/10 bg-header shadow-sm"
         >
           <ul className="mx-auto flex w-full max-w-6xl flex-col px-5 py-2 sm:px-6">
             {items.map((item) => (

@@ -13,8 +13,10 @@ import { SiteChrome } from "@/components/site-chrome";
  * root-element. Alle overige styling leidt deze tokens af via Tailwind.
  */
 const themeStyle = {
-  "--site-bg": theme.colors.background,
-  "--site-home-bg": theme.colors.homeBackground,
+  "--site-bg-landing": theme.backgrounds.landing,
+  "--site-bg-content": theme.backgrounds.content,
+  "--site-bg-header": theme.backgrounds.header,
+  "--site-bg-footer": theme.backgrounds.footer,
   "--site-fg": theme.colors.text,
   "--site-muted": theme.colors.muted,
   "--site-accent": theme.colors.accent,
@@ -47,7 +49,7 @@ export default function RootLayout({
       <body className="flex min-h-dvh flex-col font-body">
         <a
           href="#hoofdinhoud"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-background focus:px-4 focus:py-2 focus:text-foreground focus:shadow"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-content focus:px-4 focus:py-2 focus:text-foreground focus:shadow"
         >
           Naar hoofdinhoud
         </a>

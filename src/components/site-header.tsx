@@ -9,7 +9,7 @@ import { MobileNav } from "@/components/mobile-nav";
  */
 export function SiteHeader() {
   return (
-    <header className="relative border-b border-border bg-background">
+    <header className="relative border-b border-border bg-header">
       <div className="mx-auto flex min-h-[var(--site-header-h)] w-full max-w-[var(--site-content-max)] items-center justify-between gap-6 px-[var(--site-page-x)]">
         <BrandMark variant="compact" />
 

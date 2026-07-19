@@ -12,7 +12,7 @@ import { homeContent } from "@/config/home";
  */
 export default function HomePage() {
   return (
-    <div className="flex min-h-dvh flex-col items-center justify-center gap-[clamp(2rem,5vw,3.5rem)] bg-home-background px-[var(--site-page-x)] py-12">
+    <div className="flex min-h-dvh flex-col items-center justify-center gap-[clamp(2rem,5vw,3.5rem)] bg-landing px-[var(--site-page-x)] py-12">
       <h1 className="text-center">
         <BrandMark variant="home" />
       </h1>

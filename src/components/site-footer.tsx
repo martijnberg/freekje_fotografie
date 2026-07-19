@@ -15,7 +15,7 @@ export function SiteFooter() {
   ].filter((item) => item.href.trim() !== "");
 
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="border-t border-border bg-footer">
       <Container>
         <div className="flex flex-col gap-4 py-10 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-1 text-sm sm:flex-row sm:items-center sm:gap-4">
