@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import { PageIntro } from "@/components/page-intro";
+import { WorkAreaPage } from "@/components/work-area-page";
+import { workAreas } from "@/content/work-areas";
+
+const area = workAreas.portret;
 
 export const metadata: Metadata = {
-  title: "Portret",
-  description:
-    "Portretfotografie: persoonlijke portretten met rust en aandacht.",
+  title: area.seo.title,
+  description: area.seo.description,
 };
 
 export default function PortretPage() {
-  return (
-    <PageIntro
-      title="Portret"
-      intro="Persoonlijke portretten met rust en aandacht. Deze pagina is nog in opbouw; portfolio en teksten volgen later."
-    />
-  );
+  return <WorkAreaPage area={area} />;
 }

@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import { PageIntro } from "@/components/page-intro";
+import { WorkAreaPage } from "@/components/work-area-page";
+import { workAreas } from "@/content/work-areas";
+
+const area = workAreas.bedrijf;
 
 export const metadata: Metadata = {
-  title: "Bedrijf",
-  description:
-    "Bedrijfsfotografie: zakelijke portretten, teams en sfeerbeeld op locatie.",
+  title: area.seo.title,
+  description: area.seo.description,
 };
 
 export default function BedrijfPage() {
-  return (
-    <PageIntro
-      title="Bedrijf"
-      intro="Zakelijke portretten, teams en sfeerbeeld op locatie. Deze pagina is nog in opbouw; portfolio en teksten volgen later."
-    />
-  );
+  return <WorkAreaPage area={area} />;
 }

@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import { PageIntro } from "@/components/page-intro";
+import { WorkAreaPage } from "@/components/work-area-page";
+import { workAreas } from "@/content/work-areas";
+
+const area = workAreas.publicaties;
 
 export const metadata: Metadata = {
-  title: "Publicaties",
-  description:
-    "Publicaties: beeld voor redactionele en gedrukte publicaties.",
+  title: area.seo.title,
+  description: area.seo.description,
 };
 
 export default function PublicatiesPage() {
-  return (
-    <PageIntro
-      title="Publicaties"
-      intro="Beeld voor redactionele en gedrukte publicaties. Deze pagina is nog in opbouw; portfolio en teksten volgen later."
-    />
-  );
+  return <WorkAreaPage area={area} />;
 }
