@@ -65,10 +65,10 @@ export const theme: ThemeConfig = {
    * opnieuw builden en deployen. Componenten hoeven niet te worden aangepast.
    */
   backgrounds: {
-    landing: "#dfe4db",
-    content: "#f6f4f1",
-    header: "#f6f4f1",
-    footer: "#f6f4f1",
+    landing: "#e5e4dd",
+    content: "#e5e4dd",
+    header: "#e5e4dd",
+    footer: "#e5e4dd",
   },
   colors: {
     text: "#20211f",
