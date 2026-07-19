@@ -1,4 +1,4 @@
-import { Fraunces, Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 
 /** Vorm van een `next/font`-resultaat met de `variable`-optie ingesteld. */
 interface LoadedFont {
@@ -10,22 +10,18 @@ interface LoadedFont {
 /**
  * Beperkte, getypeerde font registry.
  *
- * Fonts worden via `next/font` bij de build lokaal gehost, zodat de browser
- * geen externe fontrequests doet en er geen layout shift ontstaat.
+ * Eén zorgvuldig gekozen font (Manrope) voor zowel koppen als lopende tekst;
+ * koppen worden onderscheiden met gewicht en grootte, niet met een tweede
+ * lettertype. Fonts worden via `next/font` bij de build lokaal gehost, zodat de
+ * browser geen externe fontrequests doet en er geen layout shift ontstaat.
  * Voeg hier geen willekeurige of runtime-geladen fonts toe.
  */
 
-const fraunces = Fraunces({
+const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600"],
-  variable: "--font-fraunces",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-manrope",
 });
 
 export interface FontEntry {
@@ -37,8 +33,7 @@ export interface FontEntry {
 }
 
 export const fontRegistry = {
-  fraunces: { font: fraunces, cssVar: "--font-fraunces", label: "Fraunces" },
-  inter: { font: inter, cssVar: "--font-inter", label: "Inter" },
+  manrope: { font: manrope, cssVar: "--font-manrope", label: "Manrope" },
 } as const satisfies Record<string, FontEntry>;
 
 export type FontKey = keyof typeof fontRegistry;

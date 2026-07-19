@@ -8,7 +8,9 @@
 @theme inline {
   --color-background: var(--site-bg);
   --color-foreground: var(--site-fg);
+  --color-muted: var(--site-muted);
   --color-accent: var(--site-accent);
+  --color-border: var(--site-border);
   --font-heading: var(--site-font-heading);
   --font-body: var(--site-font-body);
 }

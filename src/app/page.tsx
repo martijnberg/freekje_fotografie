@@ -2,72 +2,61 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { siteConfig } from "@/config/site";
-
-/**
- * Drie primaire fotografische ingangen op de homepage. Voorlopige teksten,
- * later te vervangen. De beeldvlakken zijn tijdelijke placeholders.
- */
-const focusAreas = [
-  {
-    href: "/bedrijf",
-    title: "Bedrijf",
-    description: "Zakelijke portretten, teams en sfeer op locatie.",
-  },
-  {
-    href: "/portret",
-    title: "Portret",
-    description: "Persoonlijke portretten met rust en aandacht.",
-  },
-  {
-    href: "/publicaties",
-    title: "Publicaties",
-    description: "Beeld voor redactionele en gedrukte publicaties.",
-  },
-];
+import { homeContent } from "@/config/home";
 
 export default function HomePage() {
   return (
     <Container>
-      <section className="py-16 sm:py-20" aria-labelledby="intro-titel">
-        <h1
-          id="intro-titel"
-          className="max-w-2xl font-heading text-4xl font-medium tracking-tight text-foreground sm:text-5xl"
-        >
-          {siteConfig.positioning}
-        </h1>
-        <p className="mt-4 max-w-xl text-lg leading-relaxed text-foreground/70">
-          Rustige, verzorgde fotografie waarin het beeld centraal staat. Deze
-          website is in opbouw; de inhoud is voorlopig.
-        </p>
-      </section>
+      <h1 className="sr-only">
+        {siteConfig.name} — {siteConfig.positioning}
+      </h1>
 
-      <section aria-labelledby="werkgebieden-titel" className="pb-20">
-        <h2 id="werkgebieden-titel" className="sr-only">
-          Werkgebieden
-        </h2>
-        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {focusAreas.map((area) => (
+      <section aria-label="Werkgebieden" className="pt-[var(--site-section-y)]">
+        <ul className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-10">
+          {homeContent.areas.map((area) => (
             <li key={area.href}>
-              <Link
-                href={area.href}
-                className="group block rounded-sm outline-offset-4"
-              >
+              <Link href={area.href} className="group block rounded-sm">
                 <PlaceholderImage
-                  ratio="aspect-[4/5]"
+                  tone={area.tone}
+                  ratio="aspect-[3/4]"
                   className="transition-opacity group-hover:opacity-90"
                 />
-                <h3 className="mt-4 font-heading text-xl font-medium text-foreground">
+                <h2 className="mt-4 text-lg font-semibold tracking-tight text-foreground">
                   <span className="border-b-2 border-transparent transition-colors group-hover:border-accent">
                     {area.title}
                   </span>
-                </h3>
-                <p className="mt-1 text-sm leading-relaxed text-foreground/70">
-                  {area.description}
-                </p>
+                </h2>
               </Link>
             </li>
           ))}
         </ul>
+      </section>
+
+      <section
+        aria-labelledby="positionering-titel"
+        className="pt-[calc(var(--site-section-y)*1.75)]"
+      >
+        <h2 id="positionering-titel" className="sr-only">
+          Over Freekje Fotografie
+        </h2>
+        <p className="max-w-xl text-lg leading-relaxed text-muted">
+          {homeContent.positioning}
+        </p>
+      </section>
+
+      <section
+        aria-label="Contact"
+        className="pb-[var(--site-section-y)] pt-[calc(var(--site-section-y)*1.5)]"
+      >
+        <p className="text-base text-muted">
+          {homeContent.contact.text}{" "}
+          <Link
+            href={homeContent.contact.href}
+            className="text-accent underline underline-offset-4 hover:no-underline"
+          >
+            {homeContent.contact.linkLabel}
+          </Link>
+        </p>
       </section>
     </Container>
   );

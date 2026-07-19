@@ -33,7 +33,7 @@ export function NavLink({
       className={`border-b-2 pb-0.5 transition-colors hover:text-accent ${
         isActive
           ? "border-accent font-medium text-foreground"
-          : "border-transparent text-foreground/80"
+          : "border-transparent text-muted"
       } ${className}`}
     >
       {children}

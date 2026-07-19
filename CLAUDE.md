@@ -59,12 +59,15 @@ De homepage bevat drie primaire fotografische ingangen:
 * Portret
 * Publicaties
 
-De navigatie toont op alle inhoudelijke pagina’s:
+De vaste hoofdnavigatie toont op alle inhoudelijke pagina’s:
 
-* de drie werkgebieden;
+* Bedrijf;
+* Portret;
+* Publicaties;
 * Werkwijze;
-* Over mij;
-* Contact.
+* Over mij.
+
+Contact staat bewust niet in de hoofdnavigatie. Contact blijft bereikbaar via de homepage en de footer.
 
 ## 5. Configuratie
 

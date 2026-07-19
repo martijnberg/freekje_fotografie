@@ -14,7 +14,13 @@ import { SiteFooter } from "@/components/site-footer";
 const themeStyle = {
   "--site-bg": theme.colors.background,
   "--site-fg": theme.colors.text,
+  "--site-muted": theme.colors.muted,
   "--site-accent": theme.colors.accent,
+  "--site-border": theme.colors.border,
+  "--site-content-max": theme.layout.maxContentWidth,
+  "--site-page-x": theme.layout.pageMarginX,
+  "--site-section-y": theme.layout.sectionSpacingY,
+  "--site-header-h": theme.layout.headerHeight,
   "--site-font-heading": `var(${fontRegistry[theme.fonts.heading].cssVar})`,
   "--site-font-body": `var(${fontRegistry[theme.fonts.body].cssVar})`,
 } as CSSProperties;

@@ -24,7 +24,10 @@ export interface SiteConfig {
   phone: string;
   /** Vestigingsplaats. */
   city: string;
-  /** Hoofdnavigatie-items. */
+  /**
+   * Hoofdnavigatie-items. Contact staat hier bewust niet in: contact is
+   * bereikbaar via de homepage en de footer.
+   */
   nav: NavItem[];
   social: {
     instagram: string;
@@ -44,7 +47,6 @@ export const siteConfig: SiteConfig = {
     { href: "/publicaties", label: "Publicaties" },
     { href: "/werkwijze", label: "Werkwijze" },
     { href: "/over-mij", label: "Over mij" },
-    { href: "/contact", label: "Contact" },
   ],
   social: {
     instagram: "https://www.instagram.com/",

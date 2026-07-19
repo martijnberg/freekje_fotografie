@@ -51,7 +51,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
                 <NavLink
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block py-3 text-base"
+                  className="block py-3.5 text-base"
                 >
                   {item.label}
                 </NavLink>
