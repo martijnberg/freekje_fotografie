@@ -23,13 +23,15 @@ export function WorkAreaPage({ area }: { area: WorkArea }) {
           </p>
         </header>
 
-        <div className="mt-[var(--site-section-y)]">
-          <WorkImageView
-            image={area.hero}
-            priority
-            sizes="(min-width: 1024px) 1120px, 100vw"
-          />
-        </div>
+        {area.hero && (
+          <div className="mt-[var(--site-section-y)]">
+            <WorkImageView
+              image={area.hero}
+              priority
+              sizes="(min-width: 1024px) 1120px, 100vw"
+            />
+          </div>
+        )}
 
         <div className="mt-[var(--site-section-y)]">
           <Gallery images={area.gallery} />

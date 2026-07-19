@@ -41,8 +41,11 @@ export interface WorkArea {
   };
   /** Rustige introductie bovenaan de pagina. */
   intro: string;
-  /** Groot fotografisch openingsvlak. */
-  hero: WorkImage;
+  /**
+   * Optioneel groot fotografisch openingsvlak. Ontbreekt het, dan toont de
+   * pagina geen apart hero-blok en bepaalt uitsluitend `gallery` de volgorde.
+   */
+  hero?: WorkImage;
   /** Fotoselectie met afwisselend ritme. */
   gallery: WorkImage[];
   /** Maximaal één aanvullend tekstblok. */
@@ -128,13 +131,9 @@ export const workAreas: Record<WorkArea["slug"], WorkArea> = {
     },
     intro:
       "Persoonlijke portretten met rust en aandacht. Voor jezelf, je werk of een moment dat je wilt vastleggen.",
-    hero: {
-      src: "/foto/portret/5419663.jpg",
-      alt: "Zwart-witportret van een man van dichtbij",
-      ratio: "portrait",
-      objectPosition: "center",
-      ready: true,
-    },
+    // Geen apart hero-blok: de galerij bepaalt de volledige volgorde. De twee
+    // staande portretten staan eerst (op desktop naast elkaar), gevolgd door
+    // het voormalige hero-beeld als full-width beeld op positie 3.
     gallery: [
       {
         src: "/foto/portret/5507608.jpg",
@@ -150,6 +149,14 @@ export const workAreas: Record<WorkArea["slug"], WorkArea> = {
         ratio: "portrait",
         span: "half",
         objectPosition: "center 30%",
+        ready: true,
+      },
+      {
+        src: "/foto/portret/5419663.jpg",
+        alt: "Zwart-witportret van een man van dichtbij",
+        ratio: "portrait",
+        span: "full",
+        objectPosition: "center",
         ready: true,
       },
       {
