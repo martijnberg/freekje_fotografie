@@ -4,10 +4,10 @@ import type { WorkImage } from "@/content/work-areas";
 /**
  * Configuratiegestuurde inhoud van de homepage.
  *
- * De drie hoofdgebieden, de positioneringstekst en de contactuitnodiging staan
- * hier centraal, zodat teksten en fotografie eenvoudig aanpasbaar zijn zonder
- * de componenten te wijzigen. Teksten zijn voorlopig; de foto's zijn de
- * aanwezige lokale beelden.
+ * De homepage is bewust compact en beeldgedreven: een gecentreerd woordmerk,
+ * drie liggende werkgebiedbeelden, een compacte Info/Contact-navigatie en één
+ * positioneringszin. Alles staat hier centraal, zodat teksten en fotografie
+ * aanpasbaar zijn zonder de componenten te wijzigen.
  */
 
 export interface HomeArea {
@@ -17,25 +17,35 @@ export interface HomeArea {
   text: string;
   /** Interne link naar de gebiedspagina. */
   href: string;
-  /** Representatief beeld voor dit werkgebied. */
+  /** Representatief beeld voor dit werkgebied (liggende uitsnede). */
   image: WorkImage;
   /** Tint van het placeholdervlak zolang een foto ontbreekt. */
   tone: PlaceholderTone;
 }
 
+export interface HomeLink {
+  label: string;
+  href: string;
+}
+
 export interface HomeContent {
-  areas: HomeArea[];
-  /** Korte positionering onder de drie gebieden (maximaal twee regels). */
-  positioning: string;
-  /** Rustige contactuitnodiging onderaan de homepage. */
-  contact: {
-    text: string;
-    linkLabel: string;
-    href: string;
+  /** Gecentreerd woordmerk bovenaan de homepage. */
+  wordmark: {
+    primary: string;
+    secondary: string;
   };
+  areas: HomeArea[];
+  /** Compacte navigatie onder de beelden. */
+  links: HomeLink[];
+  /** Korte positioneringszin (maximaal twee regels). */
+  positioning: string;
 }
 
 export const homeContent: HomeContent = {
+  wordmark: {
+    primary: "Freekje Groenemans",
+    secondary: "Fotografie",
+  },
   areas: [
     {
       title: "Bedrijf",
@@ -44,7 +54,7 @@ export const homeContent: HomeContent = {
       image: {
         src: "/foto/bedrijf/5442705.jpg",
         alt: "Professional aan het werk op locatie",
-        ratio: "portrait",
+        ratio: "landscape",
         objectPosition: "center 30%",
         ready: true,
       },
@@ -57,8 +67,8 @@ export const homeContent: HomeContent = {
       image: {
         src: "/foto/portret/5420148.jpg",
         alt: "Persoonlijk portret van een lachende vrouw",
-        ratio: "portrait",
-        objectPosition: "center 20%",
+        ratio: "landscape",
+        objectPosition: "center 35%",
         ready: true,
       },
       tone: "warm",
@@ -70,18 +80,17 @@ export const homeContent: HomeContent = {
       image: {
         src: "/foto/publicaties/5442699.jpg",
         alt: "Redactioneel gestileerd stilleven",
-        ratio: "portrait",
-        objectPosition: "center",
+        ratio: "landscape",
+        objectPosition: "center 40%",
         ready: true,
       },
       tone: "deep",
     },
   ],
+  links: [
+    { label: "Info", href: "/over-mij" },
+    { label: "Contact", href: "/contact" },
+  ],
   positioning:
     "Bedrijfs- en portretfotografie in en rond Utrecht, rustig en met aandacht voor de mens voor de lens.",
-  contact: {
-    text: "Benieuwd of we bij elkaar passen?",
-    linkLabel: "Neem contact op",
-    href: "/contact",
-  },
 };

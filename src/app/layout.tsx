@@ -6,6 +6,7 @@ import { theme } from "@/config/theme";
 import { fontRegistry, fontVariableClassName } from "@/config/fonts";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { SiteChrome } from "@/components/site-chrome";
 
 /**
  * Vertaalt de centrale thema- en fontconfiguratie naar CSS-variabelen op het
@@ -13,6 +14,7 @@ import { SiteFooter } from "@/components/site-footer";
  */
 const themeStyle = {
   "--site-bg": theme.colors.background,
+  "--site-home-bg": theme.colors.homeBackground,
   "--site-fg": theme.colors.text,
   "--site-muted": theme.colors.muted,
   "--site-accent": theme.colors.accent,
@@ -47,11 +49,9 @@ export default function RootLayout({
         >
           Naar hoofdinhoud
         </a>
-        <SiteHeader />
-        <main id="hoofdinhoud" className="flex-1">
+        <SiteChrome header={<SiteHeader />} footer={<SiteFooter />}>
           {children}
-        </main>
-        <SiteFooter />
+        </SiteChrome>
       </body>
     </html>
   );

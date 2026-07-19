@@ -7,6 +7,7 @@
  */
 @theme inline {
   --color-background: var(--site-bg);
+  --color-home-background: var(--site-home-bg);
   --color-foreground: var(--site-fg);
   --color-muted: var(--site-muted);
   --color-accent: var(--site-accent);

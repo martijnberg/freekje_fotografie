@@ -11,8 +11,10 @@ import type { FontKey } from "@/config/fonts";
 
 export interface ThemeConfig {
   colors: {
-    /** Achtergrondkleur van de site. */
+    /** Achtergrondkleur van de site (inhoudelijke pagina's). */
     background: string;
+    /** Rustige achtergrondkleur van uitsluitend de homepage. */
+    homeBackground: string;
     /** Primaire tekstkleur (lopende tekst en koppen). */
     text: string;
     /** Zachte secundaire tekstkleur voor ondersteunende tekst. */
@@ -43,6 +45,7 @@ export interface ThemeConfig {
 export const theme: ThemeConfig = {
   colors: {
     background: "#f6f4f1",
+    homeBackground: "#e6eae2",
     text: "#20211f",
     muted: "#6b6862",
     accent: "#7c4f2f",
