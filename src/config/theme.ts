@@ -21,6 +21,8 @@ export interface ThemeConfig {
     muted: string;
     /** Accentkleur voor links, actieve staat en subtiele accenten. */
     accent: string;
+    /** Heldere roze/magenta kleur voor de woordmerk-scheiding. */
+    brandDivider: string;
     /** Kleur voor subtiele borders en scheidingen. */
     border: string;
   };
@@ -35,9 +37,11 @@ export interface ThemeConfig {
     headerHeight: string;
   };
   fonts: {
-    /** Font voor koppen (verwijst naar de font registry). */
-    heading: FontKey;
-    /** Font voor lopende tekst (verwijst naar de font registry). */
+    /** Font voor het woordmerk / BrandMark (verwijst naar de font registry). */
+    brand: FontKey;
+    /** Font voor pagina- en sectiekoppen (verwijst naar de font registry). */
+    headings: FontKey;
+    /** Font voor lopende tekst, navigatie en formulieren (font registry). */
     body: FontKey;
   };
 }
@@ -49,6 +53,7 @@ export const theme: ThemeConfig = {
     text: "#20211f",
     muted: "#6b6862",
     accent: "#7c4f2f",
+    brandDivider: "#e5157f",
     border: "#e4ded5",
   },
   layout: {
@@ -58,7 +63,8 @@ export const theme: ThemeConfig = {
     headerHeight: "4rem",
   },
   fonts: {
-    heading: "manrope",
-    body: "manrope",
+    brand: "quicksand",
+    headings: "prata",
+    body: "quicksand",
   },
 };

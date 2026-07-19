@@ -17,7 +17,7 @@ export function PageIntro({
   return (
     <Container>
       <div className="max-w-2xl py-16 sm:py-20">
-        <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+        <h1 className="font-headings text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
           {title}
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-muted">{intro}</p>

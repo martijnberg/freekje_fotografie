@@ -11,8 +11,10 @@
   --color-foreground: var(--site-fg);
   --color-muted: var(--site-muted);
   --color-accent: var(--site-accent);
+  --color-brand-divider: var(--site-brand-divider);
   --color-border: var(--site-border);
-  --font-heading: var(--site-font-heading);
+  --font-brand: var(--site-font-brand);
+  --font-headings: var(--site-font-headings);
   --font-body: var(--site-font-body);
 }
 

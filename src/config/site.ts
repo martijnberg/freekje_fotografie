@@ -16,6 +16,14 @@ export interface NavItem {
 export interface SiteConfig {
   /** Naam van de fotograaf / woordmerk. */
   name: string;
+  /**
+   * Woordmerk zoals getoond in het BrandMark-component. De twee delen worden
+   * gescheiden door een apart visueel scheidingsteken (geen tekstteken).
+   */
+  wordmark: {
+    primary: string;
+    secondary: string;
+  };
   /** Korte positionering onder de naam. */
   positioning: string;
   /** Algemeen contact-e-mailadres. */
@@ -37,6 +45,10 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: "Freekje Fotografie",
+  wordmark: {
+    primary: "Freekje Groenemans",
+    secondary: "Fotografie",
+  },
   positioning: "Bedrijfs- en portretfotografie",
   email: "hallo@freekjefotografie.nl",
   phone: "+31 6 12 34 56 78",

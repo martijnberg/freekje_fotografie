@@ -1,4 +1,4 @@
-import { Manrope } from "next/font/google";
+import { Manrope, Prata, Quicksand } from "next/font/google";
 
 /** Vorm van een `next/font`-resultaat met de `variable`-optie ingesteld. */
 interface LoadedFont {
@@ -10,11 +10,14 @@ interface LoadedFont {
 /**
  * Beperkte, getypeerde font registry.
  *
- * Eén zorgvuldig gekozen font (Manrope) voor zowel koppen als lopende tekst;
- * koppen worden onderscheiden met gewicht en grootte, niet met een tweede
- * lettertype. Fonts worden via `next/font` bij de build lokaal gehost, zodat de
- * browser geen externe fontrequests doet en er geen layout shift ontstaat.
+ * Alle fonts worden via `next/font/google` bij de build lokaal gehost, zodat de
+ * browser geen externe fontrequests doet en er geen layout shift ontstaat. Per
+ * font worden uitsluitend de gewichten geladen die het font daadwerkelijk kent:
+ * Manrope en Quicksand zijn variabel (400–700); Prata bestaat alleen in 400.
  * Voeg hier geen willekeurige of runtime-geladen fonts toe.
+ *
+ * De koppeling van fonts aan de rollen brand, headings en body gebeurt niet
+ * hier maar centraal in `src/config/theme.ts`.
  */
 
 const manrope = Manrope({
@@ -24,16 +27,49 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
+const prata = Prata({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400"],
+  variable: "--font-prata",
+});
+
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-quicksand",
+});
+
 export interface FontEntry {
   font: LoadedFont;
   /** CSS-variabele waarmee dit font beschikbaar is. */
   cssVar: string;
   /** Leesbare naam voor documentatie en rapportage. */
   label: string;
+  /** Gewichten die dit font daadwerkelijk aanbiedt. */
+  weights: readonly string[];
 }
 
 export const fontRegistry = {
-  manrope: { font: manrope, cssVar: "--font-manrope", label: "Manrope" },
+  manrope: {
+    font: manrope,
+    cssVar: "--font-manrope",
+    label: "Manrope",
+    weights: ["400", "500", "600", "700"],
+  },
+  prata: {
+    font: prata,
+    cssVar: "--font-prata",
+    label: "Prata",
+    weights: ["400"],
+  },
+  quicksand: {
+    font: quicksand,
+    cssVar: "--font-quicksand",
+    label: "Quicksand",
+    weights: ["400", "500", "600", "700"],
+  },
 } as const satisfies Record<string, FontEntry>;
 
 export type FontKey = keyof typeof fontRegistry;

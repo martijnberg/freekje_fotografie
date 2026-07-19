@@ -15,7 +15,7 @@ export function WorkAreaPage({ area }: { area: WorkArea }) {
     <Container>
       <article className="pb-[var(--site-section-y)]">
         <header className="max-w-2xl pt-[var(--site-section-y)]">
-          <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h1 className="font-headings text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
             {area.title}
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-muted">

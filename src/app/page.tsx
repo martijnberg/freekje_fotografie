@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
+import { BrandMark } from "@/components/brand-mark";
 import { WorkImageView } from "@/components/work-image-view";
 import { homeContent } from "@/config/home";
 
@@ -12,13 +13,8 @@ import { homeContent } from "@/config/home";
 export default function HomePage() {
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center gap-[clamp(2rem,5vw,3.5rem)] bg-home-background px-[var(--site-page-x)] py-12">
-      <h1 className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center font-heading text-[clamp(0.85rem,3vw,1.9rem)] font-medium uppercase tracking-[0.2em] text-foreground">
-        <span>{homeContent.wordmark.primary}</span>
-        <span
-          aria-hidden="true"
-          className="h-[1.1em] w-px shrink-0 bg-accent/80"
-        />
-        <span>{homeContent.wordmark.secondary}</span>
+      <h1 className="text-center">
+        <BrandMark variant="home" />
       </h1>
 
       <section
@@ -35,7 +31,7 @@ export default function HomePage() {
                   priority={index === 0}
                   sizes="(min-width: 1024px) 373px, 100vw"
                 />
-                <h2 className="mt-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-foreground group-hover:text-accent">
+                <h2 className="mt-3 text-center font-headings text-xs font-normal uppercase tracking-[0.18em] text-foreground group-hover:text-accent">
                   {area.title}
                 </h2>
               </Link>

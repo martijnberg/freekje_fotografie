@@ -29,11 +29,6 @@ export interface HomeLink {
 }
 
 export interface HomeContent {
-  /** Gecentreerd woordmerk bovenaan de homepage. */
-  wordmark: {
-    primary: string;
-    secondary: string;
-  };
   areas: HomeArea[];
   /** Compacte navigatie onder de beelden. */
   links: HomeLink[];
@@ -42,10 +37,6 @@ export interface HomeContent {
 }
 
 export const homeContent: HomeContent = {
-  wordmark: {
-    primary: "Freekje Groenemans",
-    secondary: "Fotografie",
-  },
   areas: [
     {
       title: "Bedrijf",
