@@ -24,6 +24,7 @@ export function WorkImageView({
   sizes,
   priority = false,
   tone = "neutral",
+  className = "",
 }: {
   image: WorkImage;
   /** `sizes` voor next/image, afgestemd op de layoutbreedte. */
@@ -32,15 +33,19 @@ export function WorkImageView({
   priority?: boolean;
   /** Tint van het tijdelijke placeholdervlak. */
   tone?: PlaceholderTone;
+  /** Extra klassen op het buitenste vlak (bijv. voor een hover-effect). */
+  className?: string;
 }) {
   const aspect = ratioClass[image.ratio];
 
   if (!image.ready) {
-    return <PlaceholderImage tone={tone} ratio={aspect} />;
+    return <PlaceholderImage tone={tone} ratio={aspect} className={className} />;
   }
 
   return (
-    <div className={`relative w-full overflow-hidden rounded-sm ${aspect}`}>
+    <div
+      className={`relative w-full overflow-hidden rounded-sm ${aspect} ${className}`}
+    >
       <Image
         src={image.src}
         alt={image.alt}

@@ -2,12 +2,11 @@
  * Centraal, getypeerd contentmodel voor de werkgebiedpagina's
  * (Bedrijf, Portret, Publicaties).
  *
- * Alle teksten zijn voorlopig en staan hier centraal, niet in de
- * paginacomponenten. Er zijn nog geen definitieve foto's: elke afbeelding
- * verwijst al naar het beoogde lokale pad onder `/public` en heeft een
- * `ready`-vlag. Zolang `ready` ontbreekt/false is, toont de site een rustig
- * placeholdervlak. Zodra een echte foto op het aangegeven pad staat, hoeft
- * alleen `ready: true` te worden gezet — geen componentwijziging nodig.
+ * Teksten zijn voorlopig en staan hier centraal, niet in de paginacomponenten.
+ * De afbeeldingen verwijzen naar de aanwezige lokale foto's onder `/public` en
+ * hebben `ready: true`. Zolang `ready` ontbreekt/false is, toont de site een
+ * rustig placeholdervlak; het volstaat dan om een foto op `src` te plaatsen en
+ * `ready: true` te zetten — zonder componentwijziging.
  */
 
 export type ImageRatio = "portrait" | "landscape" | "square";
@@ -16,9 +15,9 @@ export type ImageRatio = "portrait" | "landscape" | "square";
 export type ImageSpan = "full" | "half";
 
 export interface WorkImage {
-  /** Beoogd lokaal pad onder /public. Nog te vullen met een echte foto. */
+  /** Lokaal pad onder /public. */
   src: string;
-  /** Alt-tekst voor de toekomstige foto. */
+  /** Alt-tekst. */
   alt: string;
   /** Bewuste beeldverhouding. */
   ratio: ImageRatio;
@@ -74,41 +73,44 @@ export const workAreas: Record<WorkArea["slug"], WorkArea> = {
     intro:
       "Fotografie voor bedrijven die zich herkenbaar en menselijk willen laten zien. Van zakelijke portretten tot teams en sfeerbeeld op de werkvloer.",
     hero: {
-      src: "/foto/bedrijf/hero.jpg",
-      alt: "Sfeerbeeld op locatie bij een bedrijf",
+      src: "/foto/bedrijf/5424799.jpg",
+      alt: "Groepsportret van een team buiten in tegenlicht",
       ratio: "landscape",
       objectPosition: "center",
+      ready: true,
     },
     gallery: [
       {
-        src: "/foto/bedrijf/01.jpg",
-        alt: "Zakelijk portret op locatie",
-        ratio: "portrait",
-        span: "half",
-      },
-      {
-        src: "/foto/bedrijf/02.jpg",
-        alt: "Portret van een medewerker",
-        ratio: "portrait",
-        span: "half",
-      },
-      {
-        src: "/foto/bedrijf/03.jpg",
-        alt: "Team aan het werk",
+        src: "/foto/bedrijf/5442701.jpg",
+        alt: "Trainer begeleidt een klant in een fitnessclub",
         ratio: "landscape",
         span: "full",
+        objectPosition: "center",
+        ready: true,
       },
       {
-        src: "/foto/bedrijf/04.jpg",
-        alt: "Detail van de werkomgeving",
-        ratio: "square",
-        span: "half",
-      },
-      {
-        src: "/foto/bedrijf/05.jpg",
-        alt: "Portret in gesprek",
+        src: "/foto/bedrijf/5424872.jpg",
+        alt: "Medewerker aan het werk op locatie",
         ratio: "portrait",
         span: "half",
+        objectPosition: "center 25%",
+        ready: true,
+      },
+      {
+        src: "/foto/bedrijf/5476985.jpg",
+        alt: "Twee zakenmensen in gesprek",
+        ratio: "portrait",
+        span: "half",
+        objectPosition: "center 30%",
+        ready: true,
+      },
+      {
+        src: "/foto/bedrijf/5420158.jpg",
+        alt: "Bedrijfswagen in een woonstraat",
+        ratio: "landscape",
+        span: "full",
+        objectPosition: "center",
+        ready: true,
       },
     ],
     additionalText:
@@ -127,35 +129,52 @@ export const workAreas: Record<WorkArea["slug"], WorkArea> = {
     intro:
       "Persoonlijke portretten met rust en aandacht. Voor jezelf, je werk of een moment dat je wilt vastleggen.",
     hero: {
-      src: "/foto/portret/hero.jpg",
-      alt: "Persoonlijk portret in zacht licht",
+      src: "/foto/portret/5419663.jpg",
+      alt: "Zwart-witportret van een man van dichtbij",
       ratio: "portrait",
       objectPosition: "center",
+      ready: true,
     },
     gallery: [
       {
-        src: "/foto/portret/01.jpg",
-        alt: "Portret in natuurlijk licht",
-        ratio: "portrait",
-        span: "full",
-      },
-      {
-        src: "/foto/portret/02.jpg",
-        alt: "Portret buiten",
+        src: "/foto/portret/5507608.jpg",
+        alt: "Portret van een artiest in een sfeervol interieur",
         ratio: "portrait",
         span: "half",
+        objectPosition: "center 25%",
+        ready: true,
       },
       {
-        src: "/foto/portret/03.jpg",
-        alt: "Portret binnen",
+        src: "/foto/portret/5461859.jpg",
+        alt: "Portret in een werkplaats met neonlicht",
         ratio: "portrait",
         span: "half",
+        objectPosition: "center 30%",
+        ready: true,
       },
       {
-        src: "/foto/portret/04.jpg",
-        alt: "Rustig sfeerbeeld bij een portretsessie",
+        src: "/foto/portret/5424143.jpg",
+        alt: "Kunstenaar in zijn atelier, met een detail van penselen",
         ratio: "landscape",
         span: "full",
+        objectPosition: "center",
+        ready: true,
+      },
+      {
+        src: "/foto/portret/5442710.jpg",
+        alt: "Portret met spiegel en herfsttakken",
+        ratio: "portrait",
+        span: "half",
+        objectPosition: "center 20%",
+        ready: true,
+      },
+      {
+        src: "/foto/portret/5465162.jpg",
+        alt: "Breakdancer voor een graffitimuur",
+        ratio: "portrait",
+        span: "half",
+        objectPosition: "center",
+        ready: true,
       },
     ],
     additionalText:
@@ -174,41 +193,52 @@ export const workAreas: Record<WorkArea["slug"], WorkArea> = {
     intro:
       "Beeld voor redactionele en gedrukte publicaties. Portret en reportage die een verhaal ondersteunen.",
     hero: {
-      src: "/foto/publicaties/hero.jpg",
-      alt: "Redactioneel sfeerbeeld",
+      src: "/foto/publicaties/5494105.jpg",
+      alt: "Tijdschriftspread met een portret",
       ratio: "landscape",
       objectPosition: "center",
+      ready: true,
     },
     gallery: [
       {
-        src: "/foto/publicaties/01.jpg",
-        alt: "Reportagebeeld",
-        ratio: "landscape",
-        span: "half",
-      },
-      {
-        src: "/foto/publicaties/02.jpg",
-        alt: "Portret bij een artikel",
+        src: "/foto/publicaties/5489305.jpg",
+        alt: "Tijdschriftcover met sporters",
         ratio: "portrait",
         span: "half",
+        objectPosition: "center 25%",
+        ready: true,
       },
       {
-        src: "/foto/publicaties/03.jpg",
-        alt: "Dubbele pagina met beeld",
+        src: "/foto/publicaties/5489304.jpg",
+        alt: "Tijdschriftcover met een warm portret",
+        ratio: "portrait",
+        span: "half",
+        objectPosition: "center 20%",
+        ready: true,
+      },
+      {
+        src: "/foto/publicaties/5442767.jpg",
+        alt: "Krantenpagina met reportagebeeld",
         ratio: "landscape",
         span: "full",
+        objectPosition: "center",
+        ready: true,
       },
       {
-        src: "/foto/publicaties/04.jpg",
-        alt: "Portret in reportagestijl",
+        src: "/foto/publicaties/5442714.jpg",
+        alt: "Sfeerbeeld van een restaurantinterieur",
         ratio: "portrait",
         span: "half",
+        objectPosition: "center",
+        ready: true,
       },
       {
-        src: "/foto/publicaties/05.jpg",
-        alt: "Detailbeeld voor een publicatie",
-        ratio: "landscape",
+        src: "/foto/publicaties/5458948.jpg",
+        alt: "Cover van een lifestylegids",
+        ratio: "portrait",
         span: "half",
+        objectPosition: "center",
+        ready: true,
       },
     ],
     additionalText:

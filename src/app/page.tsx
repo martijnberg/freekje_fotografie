@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
-import { PlaceholderImage } from "@/components/placeholder-image";
+import { WorkImageView } from "@/components/work-image-view";
 import { siteConfig } from "@/config/site";
 import { homeContent } from "@/config/home";
 
@@ -13,12 +13,14 @@ export default function HomePage() {
 
       <section aria-label="Werkgebieden" className="pt-[var(--site-section-y)]">
         <ul className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-10">
-          {homeContent.areas.map((area) => (
+          {homeContent.areas.map((area, index) => (
             <li key={area.href}>
               <Link href={area.href} className="group block rounded-sm">
-                <PlaceholderImage
+                <WorkImageView
+                  image={area.image}
                   tone={area.tone}
-                  ratio="aspect-[3/4]"
+                  priority={index === 0}
+                  sizes="(min-width: 1024px) 373px, 100vw"
                   className="transition-opacity group-hover:opacity-90"
                 />
                 <h2 className="mt-4 text-lg font-semibold tracking-tight text-foreground">
