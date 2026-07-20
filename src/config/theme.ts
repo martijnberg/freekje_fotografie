@@ -1,12 +1,19 @@
 import type { FontKey } from "@/config/fonts";
 
 /**
- * Centrale thema-instellingen. Deze waarden worden in de layout vertaald naar
- * CSS-variabelen op het root-element en van daaruit aan Tailwind-tokens
- * gekoppeld. Componenten gebruiken uitsluitend die tokens en bevatten geen
- * losse kleurcodes of willekeurige spacingwaarden.
+ * Centrale thema-instellingen — de eenvoudige pseudo-admin van de site.
  *
- * Voorlopige, rustige placeholderwaarden — later eenvoudig aan te passen.
+ * Deze waarden worden in de layout vertaald naar CSS-variabelen op het
+ * root-element en van daaruit aan Tailwind-tokens gekoppeld. Componenten
+ * gebruiken uitsluitend die tokens en bevatten geen losse kleurcodes of
+ * willekeurige spacingwaarden.
+ *
+ * De structuur van dit bestand:
+ * 1. `ThemeConfig` — de vorm van het thema.
+ * 2. Het blok "PAS ALLEEN DIT BLOK AAN" — fonts, achtergrondkleuren en
+ *    overige kleuren.
+ * 3. Een apart blok met technische layoutinstellingen.
+ * 4. De definitieve `theme`-export, samengesteld uit beide blokken.
  */
 
 export interface ThemeConfig {
@@ -55,16 +62,23 @@ export interface ThemeConfig {
   };
 }
 
-export const theme: ThemeConfig = {
+/* ===========================================================================
+ *  PAS ALLEEN DIT BLOK AAN
+ *
+ *  De pseudo-admin: achtergrondkleuren, overige kleuren en fonts.
+ *  - Kleuren: voer geldige CSS-kleurwaarden in (bijv. hex, rgb(), hsl()).
+ *  - Fonts: kies per rol uit "manrope", "prata" of "quicksand".
+ *  Wijzigingen zijn tijdens `npm run dev` direct zichtbaar; voor productie
+ *  opnieuw builden en deployen. Componenten hoeven niet te worden aangepast.
+ * ===========================================================================
+ */
+const settings = {
   /*
-   * Achtergrondkleuren per pagina-onderdeel. Voer geldige CSS-kleurwaarden in
-   * (bijv. hex, rgb(), hsl()). Iedere waarde bepaalt:
+   * Achtergrondkleuren per pagina-onderdeel:
    * - landing: achtergrond van de homepage
    * - content: achtergrond van alle vervolgpagina's
    * - header:  achtergrond van de vaste header
    * - footer:  achtergrond van de footer
-   * Wijzigingen zijn tijdens `npm run dev` direct zichtbaar; voor productie
-   * opnieuw builden en deployen. Componenten hoeven niet te worden aangepast.
    */
   backgrounds: {
     landing: "#e5e4dd",
@@ -72,6 +86,7 @@ export const theme: ThemeConfig = {
     header: "#e5e4dd",
     footer: "#e5e4dd",
   },
+  /* Overige kleuren: tekst, accenten en scheidingen. */
   colors: {
     text: "#20211f",
     muted: "#6b6862",
@@ -79,19 +94,12 @@ export const theme: ThemeConfig = {
     brandDivider: "#e5157f",
     border: "#e4ded5",
   },
-  layout: {
-    maxContentWidth: "72rem",
-    pageMarginX: "clamp(1.25rem, 4vw, 2rem)",
-    sectionSpacingY: "clamp(3rem, 6vw, 5rem)",
-    headerHeight: "4rem",
-  },
   /*
-   * Fontrollen. Kies per rol uit: "manrope", "prata" of "quicksand".
+   * Fontrollen (kies uit "manrope", "prata" of "quicksand"):
    * - brand:         het woordmerk (BrandMark)
    * - landingLabels: de labels onder de drie homepagefoto's
    * - headings:      pagina- en sectiekoppen
    * - body:          lopende tekst, navigatie en formulieren
-   * Alleen deze waarden aanpassen volstaat; componenten hoeven niet gewijzigd.
    */
   fonts: {
     brand: "quicksand",
@@ -99,4 +107,28 @@ export const theme: ThemeConfig = {
     headings: "prata",
     body: "quicksand",
   },
+} satisfies Pick<ThemeConfig, "backgrounds" | "colors" | "fonts">;
+
+/* ===========================================================================
+ *  Technische layoutinstellingen — normaal niet aanpassen
+ * ===========================================================================
+ */
+const layout = {
+  /** Maximale contentbreedte. */
+  maxContentWidth: "72rem",
+  /** Horizontale paginamarge (responsief via clamp). */
+  pageMarginX: "clamp(1.25rem, 4vw, 2rem)",
+  /** Verticale ruimte tussen secties (responsief via clamp). */
+  sectionSpacingY: "clamp(3rem, 6vw, 5rem)",
+  /** Hoogte van de header. */
+  headerHeight: "4rem",
+} satisfies ThemeConfig["layout"];
+
+/**
+ * Definitieve thema-export, samengesteld uit het pseudo-adminblok en de
+ * technische layoutinstellingen.
+ */
+export const theme: ThemeConfig = {
+  ...settings,
+  layout,
 };
