@@ -31,7 +31,7 @@ export default function HomePage() {
                   priority={index === 0}
                   sizes="(min-width: 1024px) 373px, 100vw"
                 />
-                <h2 className="mt-3 text-center font-headings text-xs font-normal uppercase tracking-[0.18em] text-foreground group-hover:text-accent">
+                <h2 className="mt-3 text-center font-landing-labels text-xs font-normal text-foreground group-hover:text-accent">
                   {area.title}
                 </h2>
               </Link>

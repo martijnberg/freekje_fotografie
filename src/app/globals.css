@@ -16,6 +16,7 @@
   --color-brand-divider: var(--site-brand-divider);
   --color-border: var(--site-border);
   --font-brand: var(--site-font-brand);
+  --font-landing-labels: var(--site-font-landing-labels);
   --font-headings: var(--site-font-headings);
   --font-body: var(--site-font-body);
 }

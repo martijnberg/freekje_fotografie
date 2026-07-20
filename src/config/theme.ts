@@ -46,6 +46,8 @@ export interface ThemeConfig {
   fonts: {
     /** Font voor het woordmerk / BrandMark (verwijst naar de font registry). */
     brand: FontKey;
+    /** Font voor de labels onder de drie homepagefoto's (font registry). */
+    landingLabels: FontKey;
     /** Font voor pagina- en sectiekoppen (verwijst naar de font registry). */
     headings: FontKey;
     /** Font voor lopende tekst, navigatie en formulieren (font registry). */
@@ -83,8 +85,17 @@ export const theme: ThemeConfig = {
     sectionSpacingY: "clamp(3rem, 6vw, 5rem)",
     headerHeight: "4rem",
   },
+  /*
+   * Fontrollen. Kies per rol uit: "manrope", "prata" of "quicksand".
+   * - brand:         het woordmerk (BrandMark)
+   * - landingLabels: de labels onder de drie homepagefoto's
+   * - headings:      pagina- en sectiekoppen
+   * - body:          lopende tekst, navigatie en formulieren
+   * Alleen deze waarden aanpassen volstaat; componenten hoeven niet gewijzigd.
+   */
   fonts: {
     brand: "quicksand",
+    landingLabels: "quicksand",
     headings: "prata",
     body: "quicksand",
   },

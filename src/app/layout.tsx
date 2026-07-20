@@ -27,6 +27,7 @@ const themeStyle = {
   "--site-section-y": theme.layout.sectionSpacingY,
   "--site-header-h": theme.layout.headerHeight,
   "--site-font-brand": `var(${fontRegistry[theme.fonts.brand].cssVar})`,
+  "--site-font-landing-labels": `var(${fontRegistry[theme.fonts.landingLabels].cssVar})`,
   "--site-font-headings": `var(${fontRegistry[theme.fonts.headings].cssVar})`,
   "--site-font-body": `var(${fontRegistry[theme.fonts.body].cssVar})`,
 } as CSSProperties;
