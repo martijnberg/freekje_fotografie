@@ -72,6 +72,13 @@ export interface ThemeConfig {
  *  opnieuw builden en deployen. Componenten hoeven niet te worden aangepast.
  * ===========================================================================
  */
+/*
+ * Wijzig `siteBackground` om alle vier de achtergronden tegelijk aan te passen.
+ * Een individuele achtergrond kan later nog steeds worden overschreven met een
+ * eigen geldige CSS-kleurwaarde (bijv. `landing: "#dfe4db"`).
+ */
+const siteBackground = "#e5e4dd";
+
 const settings = {
   /*
    * Achtergrondkleuren per pagina-onderdeel:
@@ -81,10 +88,10 @@ const settings = {
    * - footer:  achtergrond van de footer
    */
   backgrounds: {
-    landing: "#e5e4dd",
-    content: "#e5e4dd",
-    header: "#e5e4dd",
-    footer: "#e5e4dd",
+    landing: siteBackground,
+    content: siteBackground,
+    header: siteBackground,
+    footer: siteBackground,
   },
   /* Overige kleuren: tekst, accenten en scheidingen. */
   colors: {
