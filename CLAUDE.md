@@ -46,7 +46,7 @@ Gebruik bestaande projecttechnologie. Voeg alleen dependencies toe wanneer die a
 De website krijgt:
 
 * Home
-* Bedrijf
+* Bedrijven
 * Portret
 * Publicaties
 * Werkwijze
@@ -55,13 +55,13 @@ De website krijgt:
 
 De homepage bevat drie primaire fotografische ingangen:
 
-* Bedrijf
+* Bedrijven
 * Portret
 * Publicaties
 
 De vaste hoofdnavigatie toont op alle inhoudelijke pagina’s:
 
-* Bedrijf;
+* Bedrijven;
 * Portret;
 * Publicaties;
 * Werkwijze;

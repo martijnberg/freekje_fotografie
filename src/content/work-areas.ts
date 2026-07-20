@@ -1,6 +1,6 @@
 /**
  * Centraal, getypeerd contentmodel voor de werkgebiedpagina's
- * (Bedrijf, Portret, Publicaties).
+ * (Bedrijven, Portret, Publicaties).
  *
  * Teksten zijn voorlopig en staan hier centraal, niet in de paginacomponenten.
  * De afbeeldingen verwijzen naar de aanwezige lokale foto's onder `/public` en
@@ -31,7 +31,7 @@ export interface WorkImage {
 
 export interface WorkArea {
   /** URL-slug van de pagina. */
-  slug: "bedrijf" | "portret" | "publicaties";
+  slug: "bedrijven" | "portret" | "publicaties";
   /** Paginatitel (h1). */
   title: string;
   /** SEO-titel (zonder merknaam; de layout voegt die toe) en beschrijving. */
@@ -65,9 +65,9 @@ const contact = {
 } as const;
 
 export const workAreas: Record<WorkArea["slug"], WorkArea> = {
-  bedrijf: {
-    slug: "bedrijf",
-    title: "Bedrijf",
+  bedrijven: {
+    slug: "bedrijven",
+    title: "Bedrijven",
     seo: {
       title: "Bedrijfsfotografie",
       description:

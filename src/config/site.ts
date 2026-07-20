@@ -54,7 +54,7 @@ export const siteConfig: SiteConfig = {
   phone: "+31 6 12 34 56 78",
   city: "Utrecht",
   nav: [
-    { href: "/bedrijf", label: "Bedrijf" },
+    { href: "/bedrijven", label: "Bedrijven" },
     { href: "/portret", label: "Portret" },
     { href: "/publicaties", label: "Publicaties" },
     { href: "/werkwijze", label: "Werkwijze" },

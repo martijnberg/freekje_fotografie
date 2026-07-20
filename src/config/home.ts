@@ -39,9 +39,9 @@ export interface HomeContent {
 export const homeContent: HomeContent = {
   areas: [
     {
-      title: "Bedrijf",
+      title: "Bedrijven",
       text: "Zakelijke portretten, teams en sfeer op locatie.",
-      href: "/bedrijf",
+      href: "/bedrijven",
       image: {
         src: "/foto/bedrijf/5442705.jpg",
         alt: "Professional aan het werk op locatie",
