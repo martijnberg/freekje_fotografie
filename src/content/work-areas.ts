@@ -9,6 +9,8 @@
  * `ready: true` te zetten — zonder componentwijziging.
  */
 
+import { buildGallery } from "./local-images";
+
 export type ImageRatio = "portrait" | "landscape" | "square";
 
 /** Breedte-ritme op desktop; op mobiel is alles één kolom. */
@@ -64,7 +66,7 @@ const contact = {
   href: "/contact",
 } as const;
 
-export const workAreas: Record<WorkArea["slug"], WorkArea> = {
+const workAreasBase: Record<WorkArea["slug"], WorkArea> = {
   bedrijven: {
     slug: "bedrijven",
     title: "Bedrijven",
@@ -253,3 +255,41 @@ export const workAreas: Record<WorkArea["slug"], WorkArea> = {
     contact,
   },
 };
+
+/** Map onder `public/` waarin de foto's van elk werkgebied staan. */
+const folderBySlug: Record<WorkArea["slug"], string> = {
+  bedrijven: "foto/bedrijf",
+  portret: "foto/portret",
+  publicaties: "foto/publicaties",
+};
+
+/** Veilige alt-tekst voor automatisch toegevoegde (niet-gecureerde) foto's. */
+const defaultAltBySlug: Record<WorkArea["slug"], string> = {
+  bedrijven: "Bedrijfsfotografie op locatie",
+  portret: "Portretfotografie",
+  publicaties: "Fotografie voor een publicatie",
+};
+
+/**
+ * De gecureerde galerijen hierboven bepalen de metadata en de volgorde van de
+ * eerste foto's; alle overige geldige bestanden uit de map worden bij de build
+ * automatisch toegevoegd (met veilige defaults). Zo verschijnen alle
+ * beschikbare foto's op hun eigen pagina zonder de curatie te verliezen.
+ */
+export const workAreas: Record<WorkArea["slug"], WorkArea> = Object.fromEntries(
+  (Object.keys(workAreasBase) as WorkArea["slug"][]).map((slug) => {
+    const area = workAreasBase[slug];
+    return [
+      slug,
+      {
+        ...area,
+        gallery: buildGallery({
+          folder: folderBySlug[slug],
+          curated: area.gallery,
+          exclude: area.hero ? [area.hero.src] : [],
+          defaultAlt: defaultAltBySlug[slug],
+        }),
+      } satisfies WorkArea,
+    ];
+  }),
+) as Record<WorkArea["slug"], WorkArea>;
