@@ -77,7 +77,7 @@ export interface ThemeConfig {
  * Een individuele achtergrond kan later nog steeds worden overschreven met een
  * eigen geldige CSS-kleurwaarde (bijv. `landing: "#dfe4db"`).
  */
-const siteBackground = "#e5e4dd";
+const siteBackground = "#ced3cd";
 
 const settings = {
   /*
