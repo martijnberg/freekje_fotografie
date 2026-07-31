@@ -50,9 +50,9 @@ export const siteConfig: SiteConfig = {
     secondary: "Fotografie",
   },
   positioning: "Bedrijfs- en portretfotografie",
-  email: "hallo@freekjefotografie.nl",
-  phone: "+31 6 12 34 56 78",
-  city: "Utrecht",
+  email: "freekje@freekjegroenemans.nl",
+  phone: "+31 6 17 82 06 06",
+  city: "Eindhoven",
   nav: [
     { href: "/bedrijven", label: "Bedrijven" },
     { href: "/portret", label: "Portret" },
@@ -61,7 +61,7 @@ export const siteConfig: SiteConfig = {
     { href: "/over-mij", label: "Over mij" },
   ],
   social: {
-    instagram: "https://www.instagram.com/",
-    linkedin: "https://www.linkedin.com/",
+    instagram: "https://www.instagram.com/freekjegroenemansfotografie/",
+    linkedin: "https:linkedin.com/in/freekje-groenemans-04273a14",
   },
 };
