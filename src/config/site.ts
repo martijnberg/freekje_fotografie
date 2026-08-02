@@ -62,6 +62,6 @@ export const siteConfig: SiteConfig = {
   ],
   social: {
     instagram: "https://www.instagram.com/freekjegroenemansfotografie/",
-    linkedin: "https:linkedin.com/in/freekje-groenemans-04273a14",
+    linkedin: "https://linkedin.com/in/freekje-groenemans-04273a14",
   },
 };

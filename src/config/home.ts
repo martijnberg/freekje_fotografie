@@ -83,5 +83,5 @@ export const homeContent: HomeContent = {
     { label: "Contact", href: "/contact" },
   ],
   positioning:
-    "Bedrijfs- en portretfotografie in en rond Utrecht, rustig en met aandacht voor de mens voor de lens.",
+    "Bedrijfs- en portretfotografie in en rond Eindhoven, rustig en met aandacht voor de mens voor de lens.",
 };
